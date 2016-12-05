@@ -25,14 +25,9 @@ end
 def print(students)
   puts "What is the first letter of the name of the student you would like to search for?"
   first = gets.chomp.downcase
-  first_students = students.select do |student|
-     student[:name][0] == first
-   end
-  num_students = 1
-  first_students.each do |student|
-    puts "#{num_students}. #{student[:name]} (#{student[:cohort]} cohort)"
-    num_students += 1
-  end
+  students.each_with_index {
+    |n,i|
+    puts "#{i+1}. #{n[:name]} (#{n[:cohort]} cohort)" if n[:name][0].downcase == first.downcase}
 end
 
 def print_footer(students)

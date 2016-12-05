@@ -4,14 +4,14 @@ def input_students
   #create epmty array
   students = []
   #get first name
-  name = gets.chomp
+  name = gets.chomp.downcase
   #while name != nil, repeat code
   while !name.empty? do
     #add the student hash to the array
     students << { name: name, cohort: :november }
     puts "Now we have #{students.count} students"
     #get another name from the user
-    name = gets.chomp
+    name = gets.chomp.downcase
   end
   #return the array of students
   students
@@ -24,7 +24,7 @@ end
 
 def print(students)
   puts "What is the first letter of the name of the student you would like to search for?"
-  first = gets.chomp
+  first = gets.chomp.downcase
   first_students = students.select do |student|
      student[:name][0] == first
    end

@@ -1,4 +1,4 @@
-def input_students
+def print_input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
   #create epmty array
@@ -23,18 +23,15 @@ def print_header
 end
 
 def print(students)
-  num_students = 1
-  students.each do |student|
-    puts "#{num_students}. #{student[:name]} (#{student[:cohort]} cohort)"
-    num_students += 1
-  end
+  students.each_with_index { |n,i| puts "#{i+1}. #{n[:name]} (#{n[:cohort]} cohort)"}
 end
 
 def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
 
-students = input_students
+students = print_input_students
+
 print_header
 print(students)
 print_footer(students)

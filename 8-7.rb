@@ -10,15 +10,20 @@ What if the user makes a typo?
 
 def input_students
   puts "Please enter the names of the students"
-  puts "If you are finished, just leave the input blank"
+  puts "If you are finished, just leave the inputs blank"
   #create epmty array
   students = []
   #get first name
-  name = gets.chomp.capitalize
+  name = gets.chomp.capitalize.to_sym
   puts "What cohort are they in?"
-  cohort = gets.chomp.downcase
-  if cohort == ""
-    cohort = "november"
+  months = [:january, :febuary, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
+  cohort = gets.chomp.downcase.to_sym
+  if cohort.empty? == true
+    cohort = :november
+  end
+  while !months.include? cohort do
+    puts "Thats not a valid month"
+    cohort = gets.chomp.downcase.to_sym
   end
   #while name != nil, repeat code
   while !name.empty? do
@@ -27,11 +32,15 @@ def input_students
     puts "Now we have #{students.count} students"
     #get another name from the user
     puts "What is the next students name?"
-    name = gets.chomp.capitalize
+    name = gets.chomp.capitalize.to_sym
     puts "What cohort are they in?"
-    cohort = gets.chomp.downcase
-    if cohort == ""
-      cohort = "november"
+    cohort = gets.chomp.downcase.to_sym
+    if cohort.empty? == true
+      cohort = :november
+    end
+    while !months.include? cohort do
+      puts "Thats not a valid month"
+      cohort = gets.chomp.downcase.to_sym
     end
   end
   #return the array of students

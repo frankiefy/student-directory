@@ -31,22 +31,23 @@ end
 
 def add_student_info
   puts "Which student?"
-  student_name = gets.chomp
-  student_name = Array.new
+  students_name = gets.chomp
+  info = []
+  info << students_name
   puts "Hobbies?"
   hobbies = gets.chomp
-  student_name << hobbies
+  info << hobbies
   puts "Country of birth?"
   cob = gets.chomp
-  student_name << cob
+  info << cob
   puts "Height?"
   height = gets.chomp
-  student_name << height
+  info << height
   puts "All done!"
   puts "So, just to check I got all that:"
-  puts "The student's hobbies are #{student_name[0]}"
-  puts "The student's country of birth is #{student_name[1]}"
-  puts "The student is #{student_name[2]} meters tall"
+  puts "#{info[0]}'s hobbies are #{info[1]}"
+  puts "#{info[0]}'s country of birth is #{info[2]}"
+  puts "#{info[0]} is #{info[3]} meters tall"
 end
 
 students = print_input_students

@@ -95,7 +95,7 @@ def try_load_students
     load_students(filename)
       puts "Loaded #{@students.count} from #{filename}"
   else
-    puts "Sorry, #{filenmae} doesn't exist."
+    puts "Sorry, #{filename} doesn't exist."
     exit
   end
 end
